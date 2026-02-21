@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./mvnw compile:*)",
+      "Bash(mvn compile:*)",
+      "Bash(where:*)",
+      "Bash(cmd /c \"mvnw.cmd compile 2>&1\")",
+      "Bash(cmd /c:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(powershell -File:*)"
+    ]
+  }
+}

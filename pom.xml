@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- Fixed #1: was "4.0.3" (non-existent/pre-release). 3.4.2 is the latest stable 3.x. -->
+        <version>3.4.2</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>org.kuxa</groupId>
+    <artifactId>TrueNasAdminWorker</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>TrueNasAdminWorker</name>
+    <description>TrueNasAdminWorker</description>
+
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+
+    <dependencies>
+        <!-- RabbitMQ / AMQP -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+        <!--
+            Fixed #1: was "spring-boot-starter-webmvc" (invalid artifact ID).
+            Provides RestClient (spring-web) + Jackson (json) — no HTTP server
+            is started because web-application-type=none is set in application.yaml.
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Generates META-INF/spring-configuration-metadata.json for IDE auto-complete
+             on custom @ConfigurationProperties. Compile-time only, not included at runtime. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Fixed #1: was "spring-boot-starter-amqp-test" (invalid artifact ID) -->
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
