@@ -7,7 +7,11 @@
       "Bash(cmd /c \"mvnw.cmd compile 2>&1\")",
       "Bash(cmd /c:*)",
       "Bash(powershell -Command:*)",
-      "Bash(powershell -File:*)"
+      "Bash(powershell -File:*)",
+      "WebFetch(domain:spring.io)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:search.maven.org)",
+      "WebFetch(domain:repo1.maven.org)"
     ]
   }
 }

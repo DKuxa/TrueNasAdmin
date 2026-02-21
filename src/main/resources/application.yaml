@@ -6,23 +6,25 @@ spring:
   threads:
     virtual:
       enabled: true
+  config:
+    import: optional:file:.env[.properties]
   rabbitmq:
-    host: ${RABBITMQ_HOST:localhost}
-    port: ${RABBITMQ_PORT:5672}
-    username: ${RABBITMQ_USER:guest}
-    password: ${RABBITMQ_PASS:guest}
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USER}
+    password: ${RABBITMQ_PASS}
 
 truenas:
   api:
-    url: ${TRUENAS_URL:http://192.168.1.100}
-    key: ${TRUENAS_API_KEY:your_bearer_token}
+    url: ${TRUENAS_URL}
+    key: ${TRUENAS_API_KEY}
     connect-timeout-seconds: 5
     read-timeout-seconds: 15
 
 bot:
-  token: ${BOT_TOKEN:your_bot_token_here}
+  token: ${BOT_TOKEN}
   security:
-    admin-chat-id: ${ADMIN_CHAT_ID:123456789}
+    admin-chat-id: ${ADMIN_CHAT_ID}
 
 messaging:
   queues:
