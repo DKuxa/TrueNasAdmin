@@ -1,6 +1,7 @@
 package org.kuxa.truenasadminworker.worker.config;
 
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.QueueBuilder;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -23,9 +24,19 @@ public class RabbitMQConfig {
         return new Queue(messaging.incoming(), true);
     }
 
+    private static final String REPLIES_DLQ = "telegram.replies.dlq";
+
     @Bean
     public Queue outgoingQueue() {
-        return new Queue(messaging.outgoing(), true);
+        return QueueBuilder.durable(messaging.outgoing())
+                .withArgument("x-dead-letter-exchange", "")
+                .withArgument("x-dead-letter-routing-key", REPLIES_DLQ)
+                .build();
+    }
+
+    @Bean
+    public Queue repliesDlq() {
+        return new Queue(REPLIES_DLQ, true);
     }
 
     @Bean
