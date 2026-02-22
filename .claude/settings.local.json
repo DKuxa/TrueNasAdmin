@@ -11,7 +11,8 @@
       "WebFetch(domain:spring.io)",
       "WebFetch(domain:api.github.com)",
       "WebFetch(domain:search.maven.org)",
-      "WebFetch(domain:repo1.maven.org)"
+      "WebFetch(domain:repo1.maven.org)",
+      "Bash(git checkout:*)"
     ]
   }
 }
