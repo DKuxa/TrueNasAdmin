@@ -5,8 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <!-- Fixed #1: was "4.0.3" (non-existent/pre-release). 3.4.2 is the latest stable 3.x. -->
-        <version>3.4.2</version>
+        <version>3.4.13</version>
         <relativePath/>
     </parent>
 
@@ -21,37 +20,28 @@
     </properties>
 
     <dependencies>
-        <!-- RabbitMQ / AMQP -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
-        <!--
-            Fixed #1: was "spring-boot-starter-webmvc" (invalid artifact ID).
-            Provides RestClient (spring-web) + Jackson (json) — no HTTP server
-            is started because web-application-type=none is set in application.yaml.
-        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- Generates META-INF/spring-configuration-metadata.json for IDE auto-complete
-             on custom @ConfigurationProperties. Compile-time only, not included at runtime. -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Fixed #1: was "spring-boot-starter-amqp-test" (invalid artifact ID) -->
+
         <dependency>
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit-test</artifactId>
